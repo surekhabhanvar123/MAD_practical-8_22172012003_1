@@ -7,19 +7,23 @@
     tools:context=".MainActivity">
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/text"
-                android:layout_width="match_parent"
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:text="MAD_Alarm_Practical"
-                android:textSize="24sp"
-                android:textStyle="bold"
+                android:text="MAD ALARM PRACTICAl"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,7 +35,7 @@
                 app:cardElevation="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text">
+                app:layout_constraintTop_toBottomOf="@+id/textView">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -39,13 +43,11 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/imageView"
                         android:layout_width="match_parent"
-                        android:layout_height="210dp"
-                        android:id="@+id/image"
-                        android:src="@drawable/img"
-                        android:textStyle="bold"
+                        android:layout_height="194dp"
                         android:scaleType="fitXY"
-                        app:srcCompat="@drawable/img" />
+                        app:srcCompat="@drawable/image" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -63,50 +65,93 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="By pressing buttons, Alarm can be created and cancelled"
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary" />
+                            android:text="Be pressing buttons,Alarm can be created And cancelled."
+                            android:textAppearance="?attr/textAppearanceBody2" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:text="Check current time by looking below real digital clock."
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary" />
+                            android:layout_marginTop="8dp"
+                            android:text="Check Current Time By looking below real digital clock"
+                            android:textAppearance="?attr/textAppearanceBody2" />
 
                         <TextClock
                             android:id="@+id/clocktime"
+                            android:format12Hour="hh:mm:ss a MMM dd yyyy"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_margin="20dp"
-                            android:format12Hour="hh:mm:ss a MMM dd yyyy"
                             android:padding="10dp"
-                            android:textAlignment="center"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
+                            android:textAlignment="center"/>
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/create"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:text="Create Alarm"
-                            app:icon="@drawable/baseline_access_alarm_24"/>
-
+                            app:icon="@drawable/baseline_add_alarm_24"/>
                     </LinearLayout>
                 </LinearLayout>
+
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card1"
+                android:id="@+id/card2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 app:cardElevation="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/card"/>
+                app:layout_constraintTop_toBottomOf="@+id/card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="194dp"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@drawable/image"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Set Alarm Time:"
+                            android:layout_gravity="center"
+                            android:textAppearance="?attr/textAppearanceHeadline6"/>
+
+                        <TextClock
+                            android:id="@+id/clocktime2"
+                            android:format12Hour="hh:mm:ss a MMM dd yyyy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="20dp"
+                            android:padding="10dp"
+                            android:textAlignment="center"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/cancel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cancel Alarm"
+                            app:icon="@drawable/baseline_alarm_off_24"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
